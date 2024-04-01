@@ -26,4 +26,6 @@ in
         mkdir $out
         cp -r ${name} $out
       '';
+
+      passthru.packageName = name;
     }

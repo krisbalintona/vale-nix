@@ -16,13 +16,27 @@
       pkgs = (import nixpkgs) {
         inherit system overlays;
       };
+      testConfig = {
+        packages = styles: with styles; [microsoft readability];
+        vocab = {
+          accept = ["seccomp"];
+        };
+        formatOptions = {
+          "*" = {
+            basedOnStyles = ["Vale" "Microsoft"];
+            "Microsoft.Passive" = true;
+          };
+        };
+      };
     in rec {
       devShell = pkgs.mkShell {
-        nativeBuildInputs = with pkgs; [];
+        nativeBuildInputs = with pkgs; [vale];
       };
 
       packages = rec {
         styles = pkgs.valeStyles;
+        testConfigFile = pkgs.buildValeConfig testConfig;
+        testVale = pkgs.valeWithConfig testConfig;
       };
     })
     // {

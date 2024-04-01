@@ -2,7 +2,10 @@
   inputs = {
     utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "nixpkgs/release-23.11";
-    vale-nix.url = "github:icewind1991/vale-nix";
+    vale-nix = {
+      url = "github:icewind1991/vale-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

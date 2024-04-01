@@ -32,9 +32,11 @@ in
         globalSection = {
           StylesPath = symlinkJoin {
             name = "vale-packages";
-            paths = pickedPackages ++ [
-              (buildValeVocab vocab)
-            ];
+            paths =
+              pickedPackages
+              ++ [
+                (buildValeVocab vocab)
+              ];
           };
           Vocab = "Nix";
           MinAlertLevel = minAlertLevel;

@@ -15,21 +15,6 @@
         "type": "indirect"
       }
     },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1711975502,
-        "narHash": "sha256-AE7WdTPUpL1Ga1Qx2G9NZYa6PGW9Rr7eguDtgB7jZeo=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "5cffe359b24843b40de5534d92b32eca7c784569",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "ref": "release-23.11",
-        "type": "indirect"
-      }
-    },
     "root": {
       "inputs": {
         "nixpkgs": "nixpkgs",
@@ -105,7 +90,9 @@
     },
     "vale-nix": {
       "inputs": {
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "utils": "utils_2"
       },
       "locked": {

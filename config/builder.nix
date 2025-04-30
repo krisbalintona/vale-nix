@@ -11,11 +11,11 @@
   stringList = concatStringsSep ", ";
   makeFormatOption = options: let
     rest = removeAttrs options ["basedOnStyles"];
+    optionalBasedOnStyles = lib.optionalAttrs (options ? basedOnStyles) {
+      BasedOnStyles = stringList options.basedOnStyles;
+    };
   in
-    {
-      BasedOnStyles = stringList options.basedOnStyles or [];
-    }
-    // rest;
+    optionalBasedOnStyles // rest;
 in
   {
     minAlertLevel ? "warning",

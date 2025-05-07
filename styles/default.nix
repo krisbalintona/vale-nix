@@ -43,4 +43,13 @@
     rev = "v${version}";
     sha256 = "sha256-xNF7se2FwKgNe5KYx/zvGWpIwBsBADYGH4JV1lUww+Q=";
   };
+  redhat = builder rec {
+    name = "RedHat";
+    owner = "redhat-documentation";
+    repo = "vale-at-red-hat";
+    version = "597";
+    rev = "v${version}";
+    sha256 = "sha256-Y5TshFG8EfcsmhEqTljxkxb2hRmfem+0njQDa/mUhmw=";
+    rulesPath = ".vale/styles/RedHat/";
+  };
 }
